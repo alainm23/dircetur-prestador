@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row m-0 p-0">
+  <div class="col-12 text-center">
+    <h1 id="title" class="title">Login</h1>
+    <p class="sub-title">Hello! Log in with your email.</p>
+  </div>
+  <div class="offset-xl-3 col-12 col-lg-6">
+    <div class="card">
+      <div class="card-body" *ngIf="mostrar_view=='login'">
+        <form [formGroup]="form">
+          <div class="form-control-group">
+            <label><strong>Correo:</strong></label><br>
+            <input nbInput fullWidth type="email" formControlName="email" required><br>
+            <label><strong>Contraseña:</strong></label><br>
+            <input nbInput fullWidth type="password" formControlName="password" required><br>
+
+          </div>
+          <div class="row pt-4">
+            <div class="col-6">
+              <button class="btn btn-success" type="submit" [disabled]="!form.valid" (click)="login()">Iniciar</button>
+            </div>
+            <div class="col-6 text-right mt-2">
+              <a (click)="recuperarPass ()" style="cursor: pointer; color: blue;">Olvidaste tu Contraseña?</a>
+            </div>
+          </div>
+        </form>
+
+
+      </div>
+      <div class="card-body" *ngIf="mostrar_view=='recuperar'">
+
+        <form [formGroup]="form_recuperar">
+          <div class="form-control-group">
+            <label><strong>Correo:</strong></label><br>
+            <input nbInput fullWidth type="email" formControlName="email" required>
+            <br>
+          </div>
+          <div class="row pt-4">
+            <div class="col-6">
+                <button class="btn btn-success" type="submit" [disabled]="!form_recuperar.valid" (click)="recuperarPass2 ()">Recuperar</button>
+            </div>
+            <div class="col-6 text-right mt-2">
+              <a (click)="loginView ()" style="cursor: pointer; color: blue;">< Regresar</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-12">
+    <div class="text-center pb-4">
+      <h1>Información del Guia</h1>
+      <p>Las etiquetas con el (*) son editables</p>
+    </div>
+    <form [formGroup]="form">
+      <nb-card>
+        <nb-card-body>
+          <div class="form-group">
+            <label for="exampleNombreCompleto1" class="label">Nombre Completo:</label>
+            <input type="text" nbInput fullWidth id="exampleNombreCompleto1" formControlName="nombre_completo" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="exampleAC1" class="label">Asociacion Colegio:</label>
+            <input type="text" nbInput fullWidth id="exampleAC1" formControlName="asociacion_colegio" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="exampleCF1" class="label">Centro de Formación:</label>
+            <input type="text" nbInput fullWidth id="exampleCF1" formControlName="centro_formacion" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="examplenc1" class="label">Nro Carnet:</label>
+            <input type="text" nbInput fullWidth id="examplenc1" formControlName="nro_carne" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="examplend1" class="label">Nro Documento:</label>
+            <input type="text" nbInput fullWidth id="examplend1" formControlName="nro_documento" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="exampleRUC1" class="label">RUC:</label>
+            <input type="text" nbInput fullWidth id="exampleRUC1" formControlName="ruc" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="exampleDireccion1" class="label">Dirección (*):</label>
+            <input type="text" nbInput fullWidth formControlName="direccion" id="exampleDireccion1">
+          </div>
+          <div class="form-group">
+            <label for="exampleTelefono1" class="label">Teléfono (*):</label>
+            <input type="text" nbInput fullWidth formControlName="telefono" id="exampleTelefono1">
+          </div>
+          <div class="form-group">
+            <label for="exampleEmail1" class="label">Correo (*):</label>
+            <input type="email" nbInput fullWidth formControlName="correo" id="exampleEmail1">
+          </div>
+          <div class="form-group">
+            <label for="exampleEmail2" class="label">Correo Personal (*):</label>
+            <input type="email" nbInput fullWidth formControlName="correo_personal" id="exampleEmail2">
+          </div>
+          <div class="form-group">
+            <label for="exampleFechaUltimaInspeccion1" class="label">Fecha última inspección:</label>
+            <input type="text" nbInput fullWidth [value]="traerFecha(guia?.fecha_ins)" id="exampleFechaUltimaInspeccion1" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="exampleFechaExpedicion1" class="label">Fecha expedición:</label>
+            <input type="text" nbInput fullWidth [value]="traerFecha(guia?.fecha_exp)" id="exampleFechaExpedicion1" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="exampleLogotipo1" class="label">Logotipo (*):</label>
+            <img src="" alt="">
+            <input type="file" nbInput fullWidth id="exampleLogotipo1" >
+          </div>
+          <div class="form-group">
+            <label for="exampleDistrito1" class="label">Distrito:</label>
+            <input type="text" nbInput fullWidth id="exampleDistrito1" formControlName="distrito_nombre" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="exampleProvincia1" class="label">Provincia:</label>
+            <input type="text" nbInput fullWidth id="exampleProvincia1" formControlName="provincia_nombre" disabled="true">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success" (click)="actualizarInfo('success')">Actualizar</button>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </form>
+  </div>
+</div>

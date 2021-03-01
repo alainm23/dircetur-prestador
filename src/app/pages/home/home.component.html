@@ -1,0 +1,413 @@
+<div *ngIf="validartipo == 'agencia'" class="row">
+  <div class="col-md-8">
+    <div class="text-center pb-4">
+      <h1>Información de la Agencia</h1>
+    </div>
+    <form [formGroup]="form">
+      <nb-card>
+        <nb-card-body>
+          <div class="form-group">
+            <label for="exampleNombreComercial1" class="label">Nombre Comercial:</label>
+            <input type="text" nbInput fullWidth id="exampleNombreComercial1" formControlName="nombre_comercial" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleRazonSocial1" class="label">Razón Social:</label>
+            <input type="text" nbInput fullWidth id="exampleRazonSocial1" formControlName="razon_social" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleRUC1" class="label">RUC:</label>
+            <input type="text" nbInput fullWidth id="exampleRUC1" formControlName="ruc" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleDireccion1" class="label">Dirección:</label>
+            <input type="text" nbInput fullWidth formControlName="direccion" id="exampleDireccion1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleTelefono1" class="label">Teléfono:</label>
+            <input type="text" nbInput fullWidth formControlName="telefono" id="exampleTelefono1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleEmail1" class="label">E-Mail:</label>
+            <input type="email" nbInput fullWidth formControlName="correo" id="exampleEmail1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="examplePaginaWeb1" class="label">Página Web:</label>
+            <input type="text" nbInput fullWidth formControlName="pagina_web" id="examplePaginaWeb1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleFechaUltimaInspeccion1" class="label">Fecha última inspección:</label>
+            <input type="text" nbInput fullWidth [value]="traerFecha(alojamiento?.fecha_ins)" id="exampleFechaUltimaInspeccion1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleNumeroCertificado1" class="label">Número Certificado:</label>
+            <input type="text" nbInput fullWidth formControlName="numero_certificado" id="exampleNumeroCertificado1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleFechaExpedicion1" class="label">Fecha expedición:</label>
+            <input type="text" nbInput fullWidth [value]="traerFecha(alojamiento?.fecha_exp)" id="exampleFechaExpedicion1" disabled>
+          </div>
+          <!--div class="form-group">
+            <label for="exampleLogotipo1" class="label">Logotipo (*):</label>
+            <img src="" alt="">
+            <input type="file" nbInput fullWidth id="exampleLogotipo1" >
+          </div-->
+          <div class="form-group">
+            <label for="exampleClasificacion1" class="label">Clasificación:</label>
+            <input type="text" nbInput fullWidth id="exampleClasificacion1" formControlName="clasificacion_nombre" disabled>
+          </div>
+          <label><strong>Tipo de turismo:</strong></label>
+          <br>
+          <label *ngFor="let tipo of tipos_turismos">{{tipo.name}}. </label>
+          <br>
+          <div class="form-group">
+            <label for="exampleProvincia1" class="label">Provincia:</label>
+            <input type="text" nbInput fullWidth id="exampleProvincia1" formControlName="provincia_nombre" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleDistrito1" class="label">Distrito:</label>
+            <input type="text" nbInput fullWidth id="exampleDistrito1" formControlName="distrito_nombre" disabled>
+          </div>
+
+          <!--div class="form-group">
+            <label for="exampleServiciosComplementarios1" class="label">Servicios complementarios (*):</label>
+            <input type="email" nbInput fullWidth id="exampleServiciosComplementarios1" formControlName="servicios_complementarios">
+          </div>
+          <div class="form-group">
+            <label for="exampleObservaciones1" class="label">Observaciones (*):</label>
+            <textarea rows="5" nbInput fullWidth shape="round" formControlName="observaciones" id="exampleObservaciones1"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success" (click)="actualizarInfo('success')">Actualizar</button>
+          </div-->
+        </nb-card-body>
+      </nb-card>
+    </form>
+
+  </div>
+  <!-- <div class="col-md-4 px-lg-2">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center pb-2 pt-xl-5">
+          <h3 class="pt-xl-3">Representantes Legales</h3>
+        </div>
+        <nb-card *ngFor="let representante of representantes">
+          <nb-card-body *ngIf="representante.eliminado==false">
+            <label><strong>Nombres y Apellidos:</strong> {{representante?.nombre}} </label><br>
+            <label><strong>Correo electrónico:</strong> {{representante?.correo}} </label><br>
+            <label><strong>Dirección:</strong> {{representante?.direccion}}</label><br>
+            <label><strong>N Documento:</strong> {{representante?.ndoc}}</label><br>
+            <label><strong>Teléfono celular:</strong> {{representante?.telefono}}</label><br>
+            <label><strong>Tipo de documento:</strong> {{representante?.tdoc}}</label><br>
+          </nb-card-body>
+        </nb-card>
+      </div>
+
+    </div>
+  </div> -->
+</div>
+<div *ngIf="validartipo == 'alojamiento'" class="row">
+  <div class="col-md-8">
+    <div class="text-center pb-4">
+      <h1>Información del Hospedaje</h1>
+    </div>
+    <form [formGroup]="form">
+      <nb-card>
+        <nb-card-body>
+          <div class="form-group">
+            <label for="exampleNombreComercial1" class="label">Nombre Comercial:</label>
+            <input type="text" nbInput fullWidth id="exampleNombreComercial1" formControlName="nombre_comercial" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleRazonSocial1" class="label">Razón Social:</label>
+            <input type="text" nbInput fullWidth id="exampleRazonSocial1" formControlName="razon_social" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleRUC1" class="label">RUC:</label>
+            <input type="text" nbInput fullWidth id="exampleRUC1" formControlName="ruc" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleDireccion1" class="label">Dirección:</label>
+            <input type="text" nbInput fullWidth formControlName="direccion" id="exampleDireccion1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleTelefono1" class="label">Teléfono:</label>
+            <input type="text" nbInput fullWidth formControlName="telefono" id="exampleTelefono1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleEmail1" class="label">E-Mail:</label>
+            <input type="email" nbInput fullWidth formControlName="correo" id="exampleEmail1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="examplePaginaWeb1" class="label">Página Web:</label>
+            <input type="text" nbInput fullWidth formControlName="pagina_web" id="examplePaginaWeb1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleFechaUltimaInspeccion1" class="label">Fecha última inspección:</label>
+            <input type="text" nbInput fullWidth [value]="traerFecha(alojamiento?.fecha_ins)" id="exampleFechaUltimaInspeccion1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleNumeroCertificado1" class="label">Número Certificado:</label>
+            <input type="text" nbInput fullWidth formControlName="numero_certificado" id="exampleNumeroCertificado1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleFechaExpedicion1" class="label">Fecha expedición:</label>
+            <input type="text" nbInput fullWidth [value]="traerFecha(alojamiento?.fecha_exp)" id="exampleFechaExpedicion1" disabled>
+          </div>
+          <!--div class="form-group">
+            <label for="exampleLogotipo1" class="label">Logotipo (*):</label>
+            <img src="" alt="">
+            <input type="file" nbInput fullWidth id="exampleLogotipo1" >
+          </div-->
+          <div class="form-group">
+            <label for="exampleclaseh1" class="label">Clase de Hospedaje:</label><br>
+            <input type="text" nbInput fullWidth id="exampleclaseh1" formControlName="clase_nombre" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleClasificacion1" class="label">Clasificación:</label>
+            <input type="text" nbInput fullWidth id="exampleClasificacion1" formControlName="categoria" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleProvincia1" class="label">Provincia:</label>
+            <input type="text" nbInput fullWidth id="exampleProvincia1" formControlName="provincia_nombre" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleDistrito1" class="label">Distrito:</label>
+            <input type="text" nbInput fullWidth id="exampleDistrito1" formControlName="distrito_nombre" disabled>
+          </div>
+
+          <!--div class="form-group">
+            <label for="exampleServiciosComplementarios1" class="label">Servicios complementarios (*):</label>
+            <input type="email" nbInput fullWidth id="exampleServiciosComplementarios1" formControlName="servicios_complementarios">
+          </div>
+          <div class="form-group">
+            <label for="exampleObservaciones1" class="label">Observaciones (*):</label>
+            <textarea rows="5" nbInput fullWidth shape="round" formControlName="observaciones" id="exampleObservaciones1"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success" (click)="actualizarInfo('success')">Actualizar</button>
+          </div-->
+        </nb-card-body>
+      </nb-card>
+    </form>
+  </div>
+  <!-- <div class="col-md-4 px-lg-2">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center pb-2 pt-xl-5">
+          <h3 class="pt-xl-3">Representantes Legales</h3>
+        </div>
+        <nb-card *ngFor="let representante of representantes">
+          <nb-card-body *ngIf="representante.eliminado==false">
+            <label><strong>Nombres y Apellidos:</strong> {{representante?.nombre}} </label><br>
+            <label><strong>Correo electrónico:</strong> {{representante?.correo}} </label><br>
+            <label><strong>Dirección:</strong> {{representante?.direccion}}</label><br>
+            <label><strong>N Documento:</strong> {{representante?.ndoc}}</label><br>
+            <label><strong>Teléfono celular:</strong> {{representante?.telefono}}</label><br>
+            <label><strong>Tipo de documento:</strong> {{representante?.tdoc}}</label><br>
+          </nb-card-body>
+        </nb-card>
+      </div>
+
+    </div>
+  </div> -->
+</div>
+<div *ngIf="validartipo == 'restaurante'" class="row">
+  <div class="col-md-8">
+    <div class="text-center pb-4">
+      <h1>Información del Restaurante</h1>
+
+    </div>
+    <form [formGroup]="form">
+      <nb-card>
+        <nb-card-body>
+          <div class="form-group">
+            <label for="exampleNombreComercial1" class="label">Nombre Comercial:</label>
+            <input type="text" nbInput fullWidth id="exampleNombreComercial1" formControlName="nombre_comercial" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleRazonSocial1" class="label">Razón Social:</label>
+            <input type="text" nbInput fullWidth id="exampleRazonSocial1" formControlName="razon_social" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleRUC1" class="label">RUC:</label>
+            <input type="text" nbInput fullWidth id="exampleRUC1" formControlName="ruc" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleDireccion1" class="label">Dirección:</label>
+            <input type="text" nbInput fullWidth formControlName="direccion" id="exampleDireccion1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleTelefono1" class="label">Teléfono:</label>
+            <input type="text" nbInput fullWidth formControlName="telefono" id="exampleTelefono1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleEmail1" class="label">E-Mail:</label>
+            <input type="email" nbInput fullWidth formControlName="correo" id="exampleEmail1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="examplePaginaWeb1" class="label">Página Web:</label>
+            <input type="text" nbInput fullWidth formControlName="pagina_web" id="examplePaginaWeb1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="examplemesas1" class="label">Mesas:</label>
+            <input type="text" nbInput fullWidth formControlName="cantidad_mesas" id="examplemesas1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="examplesillas1" class="label">Sillas:</label>
+            <input type="text" nbInput fullWidth formControlName="cantidad_sillas" id="examplesillas1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleFechaUltimaInspeccion1" class="label">Fecha última inspección:</label>
+            <input type="text" nbInput fullWidth [value]="traerFecha(agencia?.fecha_ins)" id="exampleFechaUltimaInspeccion1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleNumeroCertificado1" class="label">Número Certificado:</label>
+            <input type="text" nbInput fullWidth formControlName="numero_certificado" id="exampleNumeroCertificado1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleFechaExpedicion1" class="label">Fecha expedición:</label>
+            <input type="text" nbInput fullWidth [value]="traerFecha(agencia?.fecha_exp)" id="exampleFechaExpedicion1" disabled>
+          </div>
+          <!--div class="form-group">
+            <label for="exampleLogotipo1" class="label">Logotipo (*):</label>
+            <img src="" alt="">
+            <input type="file" nbInput fullWidth id="exampleLogotipo1" >
+          </div-->
+          <div class="form-group">
+            <label for="exampleCalif1" class="label">Calificación:</label>
+            <input type="text" nbInput fullWidth id="exampleCalif1" formControlName="calificacion_nombre" disabled>
+          </div>
+          <div class="form-group">
+            <label for="examplecatg1" class="label">Categoria:</label><br>
+            <input type="text" nbInput fullWidth id="examplecatg1" formControlName="categoria_nombre" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleProvincia1" class="label">Provincia:</label>
+            <input type="text" nbInput fullWidth id="exampleProvincia1" formControlName="provincia_nombre" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleDistrito1" class="label">Distrito:</label>
+            <input type="text" nbInput fullWidth id="exampleDistrito1" formControlName="distrito_nombre" disabled>
+          </div>
+
+          <!--div class="form-group">
+            <label for="exampleServiciosComplementarios1" class="label">Servicios complementarios (*):</label>
+            <input type="email" nbInput fullWidth id="exampleServiciosComplementarios1">
+          </div>
+          <div class="form-group">
+            <label for="exampleObservaciones1" class="label">Observaciones (*):</label>
+            <textarea rows="5" nbInput fullWidth shape="round" formControlName="observaciones" id="exampleObservaciones1"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success" (click)="actualizarInfo('success')">Actualizar</button>
+          </div-->
+        </nb-card-body>
+      </nb-card>
+    </form>
+  </div>
+  <div class="col-md-4 px-lg-2">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center pb-2 pt-xl-5">
+          <h3 class="pt-xl-3">Representantes Legales</h3>
+        </div>
+        <nb-card *ngFor="let representante of representantes">
+          <nb-card-body *ngIf="representante.eliminado==false">
+            <label><strong>Nombres y Apellidos:</strong> {{representante?.nombre}} </label><br>
+            <label><strong>Correo electrónico:</strong> {{representante?.correo}} </label><br>
+            <label><strong>Dirección:</strong> {{representante?.direccion}}</label><br>
+            <label><strong>N Documento:</strong> {{representante?.ndoc}}</label><br>
+            <label><strong>Teléfono celular:</strong> {{representante?.telefono}}</label><br>
+            <label><strong>Tipo de documento:</strong> {{representante?.tdoc}}</label><br>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="validartipo == 'guia'" class="row">
+  <div class="col-12">
+    <div class="text-center pb-4">
+      <h1>Información del Guia</h1>
+
+    </div>
+    <form [formGroup]="form">
+      <nb-card>
+        <nb-card-body>
+          <div class="form-group">
+            <label for="exampleNombreCompleto1" class="label">Nombre Completo:</label>
+            <input type="text" nbInput fullWidth id="exampleNombreCompleto1" formControlName="nombre_completo" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleAC1" class="label">Asociacion Colegio:</label>
+            <input type="text" nbInput fullWidth id="exampleAC1" formControlName="asociacion_colegio" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleCF1" class="label">Centro de Formación:</label>
+            <input type="text" nbInput fullWidth id="exampleCF1" formControlName="centro_formacion" disabled>
+          </div>
+          <div class="form-group">
+            <label for="examplenc1" class="label">Nro Carnet:</label>
+            <input type="text" nbInput fullWidth id="examplenc1" formControlName="nro_carne" disabled>
+          </div>
+          <div class="form-group">
+            <label for="examplend1" class="label">Nro Documento:</label>
+            <input type="text" nbInput fullWidth id="examplend1" formControlName="nro_documento" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleRUC1" class="label">RUC:</label>
+            <input type="text" nbInput fullWidth id="exampleRUC1" formControlName="ruc" disabled>
+          </div>
+          <div class="form-group">
+            <label class="label">Idiomas:</label><br>
+            <label *ngFor="let idioma of idiomas">{{idioma.nombre}}. </label>
+          </div>
+          <div class="form-group">
+            <label class="label">Tipos de Guiado:</label><br>
+            <label *ngFor="let tipo of tipos_guiado">{{tipo.nombre}}. </label>
+          </div>
+          <div class="form-group">
+            <label for="exampleDireccion1" class="label">Dirección:</label>
+            <input type="text" nbInput fullWidth formControlName="direccion" id="exampleDireccion1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleTelefono1" class="label">Teléfono:</label>
+            <input type="text" nbInput fullWidth formControlName="telefono" id="exampleTelefono1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleEmail1" class="label">Correo:</label>
+            <input type="email" nbInput fullWidth formControlName="correo" id="exampleEmail1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleEmail2" class="label">Correo Personal:</label>
+            <input type="email" nbInput fullWidth formControlName="correo_personal" id="exampleEmail2" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleFechaUltimaInspeccion1" class="label">Fecha última inspección:</label>
+            <input type="text" nbInput fullWidth [value]="traerFecha(agencia?.fecha_ins)" id="exampleFechaUltimaInspeccion1" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleFechaExpedicion1" class="label">Fecha expedición:</label>
+            <input type="text" nbInput fullWidth [value]="traerFecha(agencia?.fecha_exp)" id="exampleFechaExpedicion1" disabled>
+          </div>
+          <!--div class="form-group">
+            <label for="exampleLogotipo1" class="label">Logotipo (*):</label>
+            <img src="" alt="">
+            <input type="file" nbInput fullWidth id="exampleLogotipo1" >
+          </div-->
+          <div class="form-group">
+            <label for="exampleDistrito1" class="label">Distrito:</label>
+            <input type="text" nbInput fullWidth id="exampleDistrito1" formControlName="distrito_nombre" disabled>
+          </div>
+          <div class="form-group">
+            <label for="exampleProvincia1" class="label">Provincia:</label>
+            <input type="text" nbInput fullWidth id="exampleProvincia1" formControlName="provincia_nombre" disabled>
+          </div>
+          <!--div class="form-group">
+            <button type="submit" class="btn btn-success" (click)="actualizarInfo('success')">Actualizar</button>
+          </div-->
+        </nb-card-body>
+      </nb-card>
+    </form>
+  </div>
+</div>
